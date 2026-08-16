@@ -1,0 +1,5 @@
+<div className="size-5 relative overflow-hidden">
+    <div className="size-4 left-[2.08px] top-[2.08px] absolute outline outline-[1.25px] outline-offset-[-0.63px] outline-neutral-600" />
+    <div className="w-4 h-0 left-[2.08px] top-[10px] absolute outline outline-[1.25px] outline-offset-[-0.63px] outline-neutral-600" />
+    <div className="w-0 h-4 left-[10px] top-[2.08px] absolute outline outline-[1.25px] outline-offset-[-0.63px] outline-neutral-600" />
+</div>
