@@ -1,0 +1,429 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+:root {
+	--background: #ffffff;
+	--foreground: #171717;
+}
+
+:root {
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--font-sans: var(--font-geist-sans);
+	--font-mono: var(--font-geist-mono);
+}
+
+button {
+	cursor: pointer;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--background: #0a0a0a;
+		--foreground: #ededed;
+	}
+}
+
+body {
+	background: var(--background);
+
+	font-family: Inter, sans-serif;
+}
+
+.adm-sidebar-overlay {
+	backdrop-filter: blur(2px);
+}
+
+/* ========== SIDEBAR SCROLLBAR ========== */
+/* Webkit browsers (Chrome, Safari, Edge) */
+.adm-sidebar-scroll::-webkit-scrollbar {
+	width: 4px;
+}
+
+.adm-sidebar-scroll::-webkit-scrollbar-track {
+	background: transparent;
+	border: none;
+	box-shadow: none;
+}
+
+.adm-sidebar-scroll::-webkit-scrollbar-thumb {
+	background: #4A4C56;
+	border-radius: 4px;
+}
+
+.adm-sidebar-scroll::-webkit-scrollbar-thumb:hover {
+	background: #6A6C76;
+}
+
+/* Firefox */
+.adm-sidebar-scroll {
+	scrollbar-width: thin;
+	scrollbar-color: #4A4C56 transparent;
+}
+
+/* Extra small screen breakpoint (320px+) */
+@media (min-width: 320px) {
+	.xs\:inline {
+		display: inline;
+	}
+
+	.xs\:flex {
+		display: flex;
+	}
+
+	.xs\:hidden {
+		display: none;
+	}
+}
+
+/* On hover */
+.active-icon:hover path {
+	stroke: #ffffff;
+}
+
+/* OR on active (clicked) state */
+.active-icon:active path {
+	stroke: #ffffff;
+}
+
+/* OR when a parent element has an 'active' class */
+.active .active-icon path {
+	stroke: #ffffff;
+}
+
+/* ========== KANBAN SCROLLBAR ========== */
+.adm-kanban-scroll::-webkit-scrollbar {
+	width: 4px;
+}
+
+.adm-kanban-scroll::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+.adm-kanban-scroll::-webkit-scrollbar-thumb {
+	background: #dfe1e7;
+	border-radius: 4px;
+}
+
+.adm-kanban-scroll::-webkit-scrollbar-thumb:hover {
+	background: #b0b3bc;
+}
+
+/* ========== KANBAN BOARD HORIZONTAL SCROLL ========== */
+.adm-kanban-board::-webkit-scrollbar {
+	height: 6px;
+}
+
+.adm-kanban-board::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+.adm-kanban-board::-webkit-scrollbar-thumb {
+	background: #dfe1e7;
+	border-radius: 4px;
+}
+
+/* ========== KANBAN VIEW TRANSITION ========== */
+.adm-kanban-enter {
+	animation: kanbanSlideIn 0.3s ease-out forwards;
+}
+
+/* ========== KANBAN DRAG GHOST ========== */
+.adm-kanban-card {
+	transform: translateZ(0);
+}
+
+.adm-kanban-card:active {
+	cursor: grabbing;
+}
+
+@keyframes kanbanSlideIn {
+	from {
+		opacity: 0;
+		transform: translateX(20px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+/* ========== PREMIUM GLASS CARD ========== */
+.adm-glass-card {
+	background: rgba(255, 255, 255, 0.308);
+	backdrop-filter: blur(20px);
+	-webkit-backdrop-filter: blur(20px);
+	border-radius: 20px;
+	border: 1px solid rgba(143, 142, 142, 0.233);
+	box-shadow:
+		0 8px 32px rgba(0, 0, 0, 0.1),
+		inset 0 1px 0 rgba(255, 255, 255, 0.5),
+		inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+	position: relative;
+	overflow: hidden;
+}
+
+.adm-glass-card::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 1px;
+	background: linear-gradient(90deg,
+			transparent,
+			rgba(255, 255, 255, 0.8),
+			transparent);
+	z-index: 1;
+	pointer-events: none;
+}
+
+.adm-glass-card::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 1px;
+	height: 100%;
+	background: linear-gradient(180deg,
+			rgba(255, 255, 255, 0.8),
+			transparent,
+			rgba(255, 255, 255, 0.3));
+	z-index: 1;
+	pointer-events: none;
+}
+
+/* ========== PREMIUM GLASS INPUT ========== */
+.adm-glass-input {
+	background: rgba(255, 255, 255, 0.15);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	border-radius: 12px;
+	color: #1b1b1b;
+	transition: all 0.3s ease;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.adm-glass-input::placeholder {
+	color: rgba(27, 27, 27, 0.4);
+}
+
+.adm-glass-input:focus {
+	outline: none;
+	background: rgba(255, 255, 255, 0.219);
+	border-color: rgba(255, 255, 255, 0.6);
+	box-shadow:
+		0 0 0 3px rgba(255, 255, 255, 0.2),
+		inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* ========== PREMIUM GLASS DROPDOWN BUTTON ========== */
+.adm-glass-dropdown {
+	background: rgba(255, 255, 255, 0.15);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	border-radius: 12px;
+	color: #1b1b1b;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+	transition: all 0.3s ease;
+}
+
+.adm-glass-dropdown:hover {
+	background: rgba(255, 255, 255, 0.25);
+	border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* ========== PREMIUM GLASS DROPDOWN MENU ========== */
+.adm-glass-dropdown-menu {
+	background: rgb(255, 255, 255);
+	backdrop-filter: blur(9px);
+	-webkit-backdrop-filter: blur(12px);
+	border-radius: 14px;
+	border: 1px solid rgba(255, 255, 255, 0.35);
+	box-shadow:
+		0 8px 32px rgba(0, 0, 0, 0.12),
+		inset 0 1px 0 rgba(255, 255, 255, 0.5);
+	overflow: hidden;
+	animation: adm-dropdown-fade-in 0.15s ease-out forwards;
+}
+
+@keyframes adm-dropdown-fade-in {
+	from {
+		opacity: 0;
+		transform: translateY(-4px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Tiptap prose overrides - no plugin needed */
+.prose h1 {
+	font-size: 2rem;
+	font-weight: 700;
+	margin: 1rem 0;
+	color: #1b1b1b;
+}
+
+.prose h2 {
+	font-size: 1.5rem;
+	font-weight: 700;
+	margin: 0.75rem 0;
+	color: #1b1b1b;
+}
+
+.prose h3 {
+	font-size: 1.25rem;
+	font-weight: 600;
+	margin: 0.5rem 0;
+	color: #1b1b1b;
+}
+
+.prose ul {
+	list-style-type: disc;
+	padding-left: 1.5rem;
+	margin: 0.5rem 0;
+}
+
+.prose ol {
+	list-style-type: decimal;
+	padding-left: 1.5rem;
+	margin: 0.5rem 0;
+}
+
+.prose li {
+	margin: 0.25rem 0;
+}
+
+.prose blockquote {
+	border-left: 3px solid #dfe1e7;
+	padding-left: 1rem;
+	color: #777980;
+	margin: 0.5rem 0;
+}
+
+.prose code {
+	background: #f1f1f1;
+	padding: 0.1rem 0.3rem;
+	border-radius: 4px;
+	font-size: 0.875em;
+	font-family: monospace;
+}
+
+.prose strong {
+	font-weight: 700;
+}
+
+.prose em {
+	font-style: italic;
+}
+
+
+/* Notes & Timeline scrollbar */
+.adm-notes-scroll::-webkit-scrollbar,
+.adm-timeline-scroll::-webkit-scrollbar {
+	width: 4px;
+}
+
+.adm-notes-scroll::-webkit-scrollbar-track,
+.adm-timeline-scroll::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+.adm-notes-scroll::-webkit-scrollbar-thumb,
+.adm-timeline-scroll::-webkit-scrollbar-thumb {
+	background: #DFE1E7;
+	border-radius: 4px;
+}
+
+.adm-notes-scroll::-webkit-scrollbar-thumb:hover,
+.adm-timeline-scroll::-webkit-scrollbar-thumb:hover {
+	background: #B0B3BC;
+}
+
+.adm-dropdown-scrollable {
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+@media (min-width: 320px) {
+	.xs\:inline {
+		display: inline;
+	}
+
+	.xs\:flex {
+		display: flex;
+	}
+
+	.xs\:hidden {
+		display: none;
+	}
+
+	.xs\:block {
+		display: block;
+	}
+}
+
+.adm-l-shape-icon {
+	filter: brightness(0) invert(1);
+}
+
+/*  Custom scroll */
+
+.custom-scroll {
+	scrollbar-width: thin;
+	scrollbar-color: #071f4d transparent;
+
+	scroll-behavior: smooth;
+	overflow-y: auto;
+}
+
+.custom-scroll::-webkit-scrollbar {
+	width: 6px;
+	height: 6px;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+	background: transparent;
+	border-radius: 10px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+	background: #071f4d;
+	border-radius: 10px;
+	transition: background 0.3s ease;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+	background: #071f4d;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb:active {
+	background: #071f4d;
+}
+
+.custom-scroll::-webkit-scrollbar-corner {
+	background: transparent;
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 30%, rgba(0, 0, 0, 0.4) 0%), url('/images/abt-hero.png') lightgray 0% 30% / cover no-repeat;
+}
+
+
+
+@keyframes adm-slide-in-right {
+	from {
+		transform: translateX(100%);
+	}
+
+	to {
+		transform: translateX(0);
+	}
+}
+
+.adm-slide-in-right {
+	animation: adm-slide-in-right 0.3s ease-out forwards;
+}
